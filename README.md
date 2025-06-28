@@ -17,3 +17,8 @@ npm install takusan23/himari-webm-kotlin-multiplatform-npm-library
 本家の README 参照
 
 https://github.com/takusan23/HimariWebmKotlinMultiplatform
+
+# ライセンス
+`Apache License Version 2.0`
+
+本家が`Apache 2.0`を使っているので引き継ぎました。
