@@ -62,7 +62,7 @@ export async function instantiate(imports={}, runInitializer=true) {
     let require; 
     let wasmExports;
 
-    const isNodeJs = (typeof process !== 'undefined') && (process.release.name === 'node');
+    const isNodeJs = (typeof process !== 'undefined') && (process.release?.name === 'node');
     const isDeno = !isNodeJs && (typeof Deno !== 'undefined')
     const isStandaloneJsVM =
         !isDeno && !isNodeJs && (
