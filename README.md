@@ -20,7 +20,26 @@ npm install takusan23/himari-webm-kotlin-multiplatform-npm-library
 
 ## React + Vite で使う場合
 まず、トップレベル`await`を許可する必要があります。  
-次に、`.wasm`ファイルの`MIME-Type`が不正エラーが出るので、何かしらする必要があります。これは`vite dev`のみで、`vide build`時は起きないはずです。
+次に、`.wasm`ファイルの`MIME-Type`が不正エラーが出るので、回避する必要があります。
+
+以下のように`esnext`を指定し、`exclude`すれば動くはず
+
+```ts
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    target: 'esnext',
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      target: 'esnext',
+    },
+    exclude: [
+      "himari-webm-kotlin-multiplatform"
+    ]
+  },
+})
+```
 
 ## Next.js で使う場合
 クライアントコンポーネントでこのライブラリを利用する場合、必ずクライアント側で読み込まれるように遅延ロードする必要があります。多分。
