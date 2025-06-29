@@ -49,6 +49,14 @@ export default defineConfig({
 
 `useEffect()`や`clickHandler`なんかはクライアント側なので、ここでロードすればよいはず
 
+```ts
+async function startFixSeekableWebmLibAndDownload(arrayBuffer: ArrayBuffer) {
+    // 必要になるまでライブラリを import しない
+    const { fixSeekableWebm } = await import("fix-seekable-webm-kotlin-wasm")
+    const fixSeekableWebmNumberList = fixSeekableWebm(intArray as any)
+}
+```
+
 # 更新手順
 本家の README 参照
 
